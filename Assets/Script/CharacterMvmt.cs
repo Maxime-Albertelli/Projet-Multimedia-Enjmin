@@ -6,15 +6,10 @@ public class CharacterMvmt : MonoBehaviour
     [SerializeField] private InputActionReference moveActionReference;
     [SerializeField] private InputActionReference boostActionReference;
 
-    private Vector3 B;
-    private Vector3 A;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        A = new Vector3(0, 0, 0);
-        B = new Vector3(0, 0, 10);
-        transform.position = A;
+        transform.position = Vector3.zero;
         moveActionReference.action.Enable();
         boostActionReference.action.Enable();
     }

@@ -445,8 +445,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2343443484416147711}
+  - component: {fileID: 8092313677490634027}
   m_Layer: 0
-  m_Name: Personnagne
+  m_Name: Personage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -460,15 +461,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719571215932630879}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19124556, y: 0.85652566, z: 0.09542595, w: 0.46976903}
-  m_LocalPosition: {x: 1.27, y: -2.93, z: 3.13}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5767156780606476666}
   - {fileID: 7547300281890352071}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0.929, y: 122.717, z: 24.666}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8092313677490634027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719571215932630879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbde86ef255c6e84f9140565bc8ce79d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveActionReference: {fileID: 8333697775155000460, guid: a09a825243f015b4096ccb4ad300c936, type: 3}
+  boostActionReference: {fileID: 7104283667930432330, guid: a09a825243f015b4096ccb4ad300c936, type: 3}
 --- !u!1 &2585668591000293312
 GameObject:
   m_ObjectHideFlags: 0
