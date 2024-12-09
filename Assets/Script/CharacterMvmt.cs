@@ -8,15 +8,10 @@ public class CharacterMvmt : MonoBehaviour
 
     private Vector3 B;
     private Vector3 A;
-    float lastBoost;
 
-    float speed = 0.2f;
-    float startTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        lastBoost = Time.time;
-        startTime = Time.time;
         A = new Vector3(0, 0, 0);
         B = new Vector3(0, 0, 10);
         transform.position = A;
