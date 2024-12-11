@@ -33,18 +33,18 @@ public class CharacterMvmt : MonoBehaviour
         }
 
         if (boostActionReference.action.phase == InputActionPhase.Performed && Time.time - lastDash > dashCooldown) {
-            print("Debut dash");
             isDashing = true;
             lastDash = Time.time;
             beginDashing = Time.time;
         }
 
         if (isDashing && Time.time - beginDashing <= 0.15f) {
-            print("En train de dash");
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
             transform.position = transform.position + directorVector.normalized;
         }
         else if (isDashing && Time.time - beginDashing > 0.15f)
         {
+            gameObject.GetComponent<Rigidbody>().isKinematic = false;
             isDashing = false;
         }
     }
