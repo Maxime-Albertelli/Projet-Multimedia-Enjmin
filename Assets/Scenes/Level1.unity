@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225ef0ce88de6fb438b180e150d3107b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 2
+  attackSpeed: 3
   attackHitBox: {fileID: 2145066353}
   autoAttackRange: 18
   attackEffect: {fileID: 12418414}
@@ -956,6 +956,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &1207066935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207066929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7390bcaac126ced41a17c24e0256f94d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pv: 3
 --- !u!1 &1358368934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1169,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1719571215932630879, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1207066933}
+    - targetCorrespondingSourceObject: {fileID: 1719571215932630879, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1207066935}
     - targetCorrespondingSourceObject: {fileID: 7727251630638105207, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 304720173}

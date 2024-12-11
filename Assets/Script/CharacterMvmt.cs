@@ -39,12 +39,12 @@ public class CharacterMvmt : MonoBehaviour
         }
 
         if (isDashing && Time.time - beginDashing <= 0.15f) {
-            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             transform.position = transform.position + directorVector.normalized;
         }
         else if (isDashing && Time.time - beginDashing > 0.15f)
         {
-            gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            gameObject.GetComponent<Rigidbody>().detectCollisions = true;
             isDashing = false;
         }
     }
