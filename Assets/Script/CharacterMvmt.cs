@@ -5,6 +5,10 @@ public class CharacterMvmt : MonoBehaviour
 {
     [SerializeField] private InputActionReference moveActionReference;
     [SerializeField] private InputActionReference boostActionReference;
+    [SerializeField] private float dashCooldown;
+    private float lastDash;
+    private float beginDashing;
+    private bool isDashing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,8 +31,21 @@ public class CharacterMvmt : MonoBehaviour
             Quaternion playerOrientation = Quaternion.LookRotation(directorVector, Vector3.up);
             transform.rotation = playerOrientation;
         }
-        if (boostActionReference.action.phase == InputActionPhase.Performed) { 
+
+        if (boostActionReference.action.phase == InputActionPhase.Performed && Time.time - lastDash > dashCooldown) {
+            print("Debut dash");
+            isDashing = true;
+            lastDash = Time.time;
+            beginDashing = Time.time;
+        }
+
+        if (isDashing && Time.time - beginDashing <= 0.15f) {
+            print("En train de dash");
             transform.position = transform.position + directorVector.normalized;
+        }
+        else if (isDashing && Time.time - beginDashing > 0.15f)
+        {
+            isDashing = false;
         }
     }
 }
