@@ -6,6 +6,7 @@ public class CharacterMvmt : MonoBehaviour
     [SerializeField] private InputActionReference moveActionReference;
     [SerializeField] private InputActionReference boostActionReference;
     [SerializeField] private float dashCooldown;
+    private CharacterController controller;
     private float lastDash;
     private float beginDashing;
     private bool isDashing = false;
@@ -13,7 +14,7 @@ public class CharacterMvmt : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        transform.position = Vector3.zero;
+        controller = GetComponent<CharacterController>();
         moveActionReference.action.Enable();
         boostActionReference.action.Enable();
     }
@@ -21,17 +22,19 @@ public class CharacterMvmt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Gestion déplacement joueur
         Vector2 frameMovement = moveActionReference.action.ReadValue<Vector2>();
         Vector3 frameMovement3D = new Vector3(frameMovement.x * 0.2f, 0, frameMovement.y * 0.2f);
         Vector3 newPosition = transform.position + frameMovement3D;
         Vector3 directorVector = newPosition - transform.position;
-        transform.position = newPosition;
         if (directorVector.magnitude != 0)
         {
             Quaternion playerOrientation = Quaternion.LookRotation(directorVector, Vector3.up);
-            transform.rotation = playerOrientation;
+            this.transform.rotation = playerOrientation;
         }
+        controller.Move(frameMovement3D);
 
+        //Gestion du dash
         if (boostActionReference.action.phase == InputActionPhase.Performed && Time.time - lastDash > dashCooldown) {
             isDashing = true;
             lastDash = Time.time;
@@ -39,12 +42,13 @@ public class CharacterMvmt : MonoBehaviour
         }
 
         if (isDashing && Time.time - beginDashing <= 0.15f) {
-            gameObject.GetComponent<Rigidbody>().detectCollisions = false;
-            transform.position = transform.position + directorVector.normalized;
+            controller.detectCollisions = false;
+            Vector3 dashVector = transform.position + directorVector.normalized*2;
+            transform.position = dashVector;
         }
         else if (isDashing && Time.time - beginDashing > 0.15f)
         {
-            gameObject.GetComponent<Rigidbody>().detectCollisions = true;
+            controller.detectCollisions = true;
             isDashing = false;
         }
     }

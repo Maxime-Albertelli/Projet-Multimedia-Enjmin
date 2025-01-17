@@ -9,23 +9,25 @@ public class EnemySpawning : MonoBehaviour
     private int randomPlacement;
     float lastSpawn;
     [SerializeField] float timeSinceLastSpawn;
-    [SerializeField] public Transform playerCoordinates;
+    [SerializeField] public GameObject player;
     // Update is called once per frame
     void Update()
     {
-        playerZ = playerCoordinates.position.z;
-        playerX = playerCoordinates.position.x;
-        playerY = playerCoordinates.position.y;
+        playerZ = player.transform.position.z;
+        playerX = player.transform.position.x;
+        playerY = player.transform.position.y;
         randomPlacement = Random.Range(0, 2);
         if (Time.time - lastSpawn > timeSinceLastSpawn)
         {
             if (randomPlacement == 1)
             {
-                Instantiate(enemyToInstantiate, new Vector3(Random.Range(-50.0f + playerX, -2 + playerX), playerY, Random.Range(-50.0f + playerZ, -60.0f + playerZ)), transform.rotation);
+                GameObject c = Instantiate(enemyToInstantiate, new Vector3(Random.Range(-50.0f + transform.position.x, -2 + transform.position.x), transform.position.y + 2, Random.Range(-50.0f + transform.position.z, -60.0f + transform.position.z)), transform.rotation);
+                c.GetComponent<EnemyBehaviour>().setPlayer(player);
             }
             else if (randomPlacement == 0)
             {
-                Instantiate(enemyToInstantiate, new Vector3(Random.Range(-50.0f + playerX, -2 + playerX), playerY, Random.Range(50.0f + playerZ, 60.0f + playerZ)), transform.rotation);
+                GameObject c = Instantiate(enemyToInstantiate, new Vector3(Random.Range(-50.0f + transform.position.x, -2 + transform.position.x), transform.position.y + 2, Random.Range(50.0f + transform.position.z, 60.0f + transform.position.z)), transform.rotation);
+                c.GetComponent<EnemyBehaviour>().setPlayer(player);
             }
             lastSpawn = Time.time;
         }

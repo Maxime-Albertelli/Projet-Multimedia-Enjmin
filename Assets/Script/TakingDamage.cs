@@ -15,11 +15,11 @@ public class TakingDamage : MonoBehaviour
         print("Points de vie : " + pv);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(Time.time -  lastHit > invulnerabilityCooldown)
+        if (Time.time - lastHit > invulnerabilityCooldown)
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
             {
                 print("Le jouer perd un point de vie");
                 --pv;
