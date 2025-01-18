@@ -11,12 +11,6 @@ public class KnifeThrow : MonoBehaviour
         InvokeRepeating("instantiateKnife", 2.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void instantiateKnife()
     {
         Vector3 playerPos = transform.position;
