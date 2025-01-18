@@ -6,7 +6,7 @@ public class TakingDamage : MonoBehaviour
     [SerializeField] int pv;
     [SerializeField] Canvas deathMenu;
     [SerializeField] TMP_Text pvText;
-    float invulnerabilityCooldown = 0.75f;
+    float invulnerabilityCooldown = 1.5f;
     float lastHit;
 
     private void Start()

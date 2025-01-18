@@ -7,6 +7,7 @@ public class CharacterMvmt : MonoBehaviour
     [SerializeField] private InputActionReference boostActionReference;
     [SerializeField] private float dashCooldown;
     private CharacterController controller;
+    private CapsuleCollider damageZone;
     private float lastDash;
     private float beginDashing;
     private bool isDashing = false;
@@ -15,6 +16,7 @@ public class CharacterMvmt : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        damageZone = GetComponent<CapsuleCollider>();
         moveActionReference.action.Enable();
         boostActionReference.action.Enable();
     }
@@ -30,7 +32,7 @@ public class CharacterMvmt : MonoBehaviour
         if (directorVector.magnitude != 0)
         {
             Quaternion playerOrientation = Quaternion.LookRotation(directorVector, Vector3.up);
-            this.transform.rotation = playerOrientation;
+            this.transform.rotation = Quaternion.Slerp(transform.rotation,playerOrientation,Time.deltaTime * 12f);
         }
         controller.Move(frameMovement3D);
 
@@ -43,12 +45,14 @@ public class CharacterMvmt : MonoBehaviour
 
         if (isDashing && Time.time - beginDashing <= 0.15f) {
             controller.detectCollisions = false;
+            damageZone.enabled = false;
             Vector3 dashVector = transform.position + directorVector.normalized*2;
             transform.position = dashVector;
         }
         else if (isDashing && Time.time - beginDashing > 0.15f)
         {
             controller.detectCollisions = true;
+            damageZone.enabled = true;
             isDashing = false;
         }
     }
