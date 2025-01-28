@@ -6,6 +6,7 @@ public class TakingDamage : MonoBehaviour
     [SerializeField] int pv;
     [SerializeField] Canvas deathMenu;
     [SerializeField] TMP_Text pvText;
+    [SerializeField] private AudioSource pvAudioSource;
     float invulnerabilityCooldown = 1.5f;
     float lastHit;
 
@@ -21,9 +22,8 @@ public class TakingDamage : MonoBehaviour
         {
             if (other.gameObject.tag == "Enemy")
             {
-                print("Le jouer perd un point de vie");
                 --pv;
-                print("Points de vie : " + pv);
+                pvAudioSource.Play();
                 lastHit = Time.time;
             }
         }

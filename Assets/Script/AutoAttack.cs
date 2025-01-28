@@ -1,21 +1,33 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class AutoAttack : MonoBehaviour
 {
     [SerializeField] float attackSpeed;
     public int damage;
+    private Animator animator;
+    [SerializeField] private CapsuleCollider swordCollider;
     [SerializeField] GameObject attackAction;
     const float attackDuration = 0.40f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("instantiateAutoAttack",attackSpeed,attackSpeed);
+        animator = GetComponent<Animator>();
+        swordCollider.enabled = false;
+        StartCoroutine(AttackCoroutine());
     }
-    void instantiateAutoAttack()
+    private IEnumerator AttackCoroutine()
     {
-        Vector3 playerPos = transform.position;
-        GameObject c = Instantiate(attackAction, transform.position, transform.rotation);
-        Destroy(c, attackDuration);
+        while (true)
+        {
+            animator.SetBool("isAttacking", true);
+            swordCollider.enabled=true;
+            yield return new WaitForSeconds(attackDuration);
+            animator.SetBool("isAttacking", false);
+            swordCollider.enabled=false;
+            yield return new WaitForSeconds(attackSpeed);
+        }
     }
 }
