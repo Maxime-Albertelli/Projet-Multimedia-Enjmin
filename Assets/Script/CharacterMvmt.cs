@@ -1,4 +1,3 @@
-using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -56,7 +55,6 @@ public class CharacterMvmt : MonoBehaviour
         if (boostActionReference.action.phase == InputActionPhase.Performed && Time.time - lastDash > dashCooldown) {
             animator.SetBool("isDashing", true);
             dashParticle.Play();
-            Debug.Log("Dash");
             isDashing = true;
             lastDash = Time.time;
             beginDashing = Time.time;

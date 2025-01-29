@@ -4,7 +4,7 @@ public class EnemySpawning : MonoBehaviour
 {
     [SerializeField] public GameObject enemyToInstantiate;
     float lastSpawn;
-    [SerializeField] float timeSinceLastSpawn;
+    [SerializeField] public float timeSinceLastSpawn;
     [SerializeField] public GameObject player;
     Transform cylinder;
 
@@ -22,5 +22,10 @@ public class EnemySpawning : MonoBehaviour
             c.GetComponent<EnemyBehaviour>().setPlayer(player);
             lastSpawn = Time.time;
         }
+    }
+
+    public void setSpawnSpeed(float speed)
+    {
+        timeSinceLastSpawn = speed;
     }
 }

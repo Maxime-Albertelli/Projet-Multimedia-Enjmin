@@ -23,7 +23,6 @@ public class Levelling : MonoBehaviour
     public void gainExperience(int quantity)
     {
         experience += quantity;
-        Debug.Log("Exp : " + experience);
     }
 
     private void Update()
@@ -36,7 +35,6 @@ public class Levelling : MonoBehaviour
             xpSlider.maxValue = experienceCap;
             ++level;
             levelLabel.text = level.ToString();
-            Debug.Log("Vous êtes passé lvl " + level);
         }
     }
 

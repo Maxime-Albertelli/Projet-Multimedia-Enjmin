@@ -18,7 +18,6 @@ public class BasicEnemy : MonoBehaviour
         {
             GameObject gameManager = GameObject.Find("GameManager");
             gameManager.GetComponent<GameManager>().UpdateScore(10);
-            print(gameManager.GetComponent<GameManager>().score);
             Destroy(gameObject);
             Instantiate(exp, transform.position, Quaternion.identity);
         }
