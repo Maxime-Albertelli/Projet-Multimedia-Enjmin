@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class TakingDamage : MonoBehaviour
 {
+    [SerializeField] GameManager gameManager;
     [SerializeField] int pv;
-    [SerializeField] Canvas deathMenu;
     [SerializeField] TMP_Text pvText;
     [SerializeField] private AudioSource pvAudioSource;
     float invulnerabilityCooldown = 1.5f;
@@ -12,7 +12,6 @@ public class TakingDamage : MonoBehaviour
 
     private void Start()
     {
-        deathMenu.enabled = false;
         print("Points de vie : " + pv);
     }
 
@@ -33,9 +32,7 @@ public class TakingDamage : MonoBehaviour
     {
         pvText.text = pv.ToString(); 
         if (pv <= 0) {
-            Time.timeScale = 0;
-            gameObject.GetComponent<CharacterMvmt>().enabled = false;
-            deathMenu.enabled = true;
+            gameManager.GetComponent<GameManager>().PauseGame("death");
         }
     }
 }
