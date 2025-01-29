@@ -1,3 +1,4 @@
+using Unity.Android.Gradle.Manifest;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,7 @@ public class CharacterMvmt : MonoBehaviour
     private float beginDashing;
     private bool isDashing = false;
     private Animator animator;
+    private Vector3 gravityVelocity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,6 +29,8 @@ public class CharacterMvmt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gravityVelocity.y += -9.81f * Time.deltaTime;
+        controller.Move(gravityVelocity * Time.deltaTime);
         //Gestion déplacement joueur
         Vector2 frameMovement = moveActionReference.action.ReadValue<Vector2>();
         if(moveActionReference.action.IsPressed())

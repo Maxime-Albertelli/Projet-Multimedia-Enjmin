@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vous avez sruv\xE9cu !"
+  m_text: "Vous avez surv\xE9cu !"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9015,7 +9015,7 @@ PrefabInstance:
     - target: {fileID: 3457608360499667931, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       propertyPath: swordCollider
       value: 
-      objectReference: {fileID: 1617861370}
+      objectReference: {fileID: 1617861378}
     - target: {fileID: 7101314721670525345, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       propertyPath: m_Radius
       value: 3.413536
@@ -9072,18 +9072,30 @@ PrefabInstance:
       addedObject: {fileID: 1207066938}
     - targetCorrespondingSourceObject: {fileID: 3894737548798425327, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1617861370}
+      addedObject: {fileID: 1617861374}
     - targetCorrespondingSourceObject: {fileID: 3894737548798425327, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1617861374}
+      addedObject: {fileID: 1617861378}
   m_SourcePrefab: {fileID: 100100000, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
 --- !u!1 &1617861369 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3894737548798425327, guid: 2b9703950b9f87747862516fd60f966c, type: 3}
   m_PrefabInstance: {fileID: 1617861368}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1617861370
-CapsuleCollider:
+--- !u!114 &1617861374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617861369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d7a390505bf26248a7e9e383533becc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1617861378
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9100,23 +9112,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.005283574
-  m_Height: 0.048183486
-  m_Direction: 0
-  m_Center: {x: -0.005, y: 0, z: 0}
---- !u!114 &1617861374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617861369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d7a390505bf26248a7e9e383533becc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Radius: 0.026080757
+  m_Center: {x: 0.006, y: 0, z: 0}
 --- !u!1 &1673830896
 GameObject:
   m_ObjectHideFlags: 0
@@ -9684,8 +9682,8 @@ MonoBehaviour:
   playerInput: {fileID: 1207066946}
   timerLabel: {fileID: 1392236616}
   deathMenu: {fileID: 1012500176}
-  winMenu: {fileID: 0}
-  winScoreLabel: {fileID: 0}
+  winMenu: {fileID: 1583608737}
+  winScoreLabel: {fileID: 1292074211}
 --- !u!1001 &9075584575901055050
 PrefabInstance:
   m_ObjectHideFlags: 0
