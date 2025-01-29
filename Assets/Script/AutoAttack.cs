@@ -7,7 +7,7 @@ public class AutoAttack : MonoBehaviour
     [SerializeField] float attackSpeed;
     public int damage;
     private Animator animator;
-    [SerializeField] private CapsuleCollider swordCollider;
+    [SerializeField] private SphereCollider swordCollider;
     [SerializeField] GameObject attackAction;
     const float attackDuration = 0.5f;
 
