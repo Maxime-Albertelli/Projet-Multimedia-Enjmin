@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BasicEnemy : MonoBehaviour
@@ -8,7 +9,6 @@ public class BasicEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int scoreJoueur =  
         hp = 10;
     }
 
@@ -16,7 +16,9 @@ public class BasicEnemy : MonoBehaviour
     {
         if (hp <= 0)
         {
-            score += 10;
+            GameObject gameManager = GameObject.Find("GameManager");
+            gameManager.GetComponent<GameManager>().UpdateScore(10);
+            print(gameManager.GetComponent<GameManager>().score);
             Destroy(gameObject);
             Instantiate(exp, transform.position, Quaternion.identity);
         }

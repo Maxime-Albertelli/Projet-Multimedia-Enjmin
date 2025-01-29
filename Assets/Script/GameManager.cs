@@ -1,7 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int score;
+    [SerializeField] TMP_Text scoreLabel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +16,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void UpdateScore(int scoreToAdd)
+    {
+        score += scoreToAdd;
+        scoreLabel.text = score.ToString();
     }
 }
