@@ -9,7 +9,7 @@ public class AutoAttack : MonoBehaviour
     private Animator animator;
     [SerializeField] private CapsuleCollider swordCollider;
     [SerializeField] GameObject attackAction;
-    const float attackDuration = 0.40f;
+    const float attackDuration = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

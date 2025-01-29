@@ -5,6 +5,7 @@ public class Levelling : MonoBehaviour
     int level;
     float experience;
     float experienceCap;
+    public int score;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,7 +25,7 @@ public class Levelling : MonoBehaviour
         if (experience >= experienceCap)
         {
             experience = 0;
-            experienceCap += experienceCap * 1.5f;
+            experienceCap = experienceCap * 1.5f;
             ++level;
             Debug.Log("Vous êtes passé lvl " + level);
         }

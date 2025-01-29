@@ -8,6 +8,7 @@ public class BasicEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        int scoreJoueur =  
         hp = 10;
     }
 
@@ -15,6 +16,7 @@ public class BasicEnemy : MonoBehaviour
     {
         if (hp <= 0)
         {
+            score += 10;
             Destroy(gameObject);
             Instantiate(exp, transform.position, Quaternion.identity);
         }
@@ -22,6 +24,7 @@ public class BasicEnemy : MonoBehaviour
 
     public void TakingDamage(int damage)
     {
+
         if (hp > 0)
         {
             hp -= damage;

@@ -18,7 +18,7 @@ public class EnemySpawning : MonoBehaviour
     {
         if (Time.time - lastSpawn > timeSinceLastSpawn)
         {
-            GameObject c = Instantiate(enemyToInstantiate, new Vector3(Random.Range((-cylinder.localScale.x / 3 + transform.position.x), (cylinder.localScale.x / 3 + transform.position.x)), transform.position.y + 2, Random.Range((-cylinder.localScale.z / 3 + transform.position.z), (cylinder.localScale.z / 3 + transform.position.z))), transform.rotation);
+            GameObject c = Instantiate(enemyToInstantiate, new Vector3(Random.Range((-cylinder.localScale.x / 3 + transform.position.x), (cylinder.localScale.x / 3 + transform.position.x)), transform.position.y + 2.5f, Random.Range((-cylinder.localScale.z / 3 + transform.position.z), (cylinder.localScale.z / 3 + transform.position.z))), transform.rotation);
             c.GetComponent<EnemyBehaviour>().setPlayer(player);
             lastSpawn = Time.time;
         }
