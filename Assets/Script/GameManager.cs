@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
             PauseGame("win");
         }
 
-        print(_timeEllapsed);
         //changement de la rapidité d'apparition des ennemis en fonction du temps passé
         switch ((int) _timeEllapsed)
         {
